@@ -1,4 +1,7 @@
 package com.example.assignment3_flowerdata.data.remote
+
+import kotlinx.serialization.Serializable
+
 @Serializable
 data class RemoteFlower(
     val id: String,

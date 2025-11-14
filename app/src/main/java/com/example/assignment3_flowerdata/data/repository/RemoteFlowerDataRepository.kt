@@ -7,19 +7,19 @@ import com.example.assignment3_flowerdata.data.remote.imageFolder
 import com.example.assignment3_flowerdata.domain.Flower
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 class RemoteFlowerDataRepository @Inject constructor(
     private val flowerDataApi: FlowerDataApi
 ): FlowerDataRepository {
-    override suspend fun getAllFlowers(): List<Flower> {
+    override suspend fun getAllFlowers(): List<Flower> =
         withContext(Dispatchers.IO) {
             val remoteData: RemoteData = flowerDataApi.getRemoteData()
-            remoteData.flowers.map { remoteFlower -> remoteFlower.toFlower()}
+            remoteData.flowers.map { remoteFlower -> remoteFlower.toFlower() }
         }
 
-
     override suspend fun getFlowerById(id: String): Flower? {
-        return getAllFlowers().find { flower -> flower.id == id}
+        return getAllFlowers().find { flower -> flower.id == id }
     }
 }
 
