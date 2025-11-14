@@ -20,7 +20,7 @@ import com.example.assignment3.ui.common.LoadingScreenContent
 fun FlowerListScreen(
     modifier: Modifier = Modifier,
     viewModel: FlowerListViewModel = hiltViewModel(),
-    onItemClick: (Int) -> Unit = {}
+    onItemClick: (String) -> Unit = {}
 ){
     val state: State<FlowerListUiState> = viewModel.uiState
     val uiState: FlowerListUiState = state.value

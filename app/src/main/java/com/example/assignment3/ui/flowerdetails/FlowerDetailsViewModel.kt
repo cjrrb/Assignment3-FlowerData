@@ -18,7 +18,7 @@ class FlowerDetailsViewModel @Inject constructor(
     private val repository: FlowerDataRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private val flowerId: String = checkNotNull(savedStateHandle["flowerId"])
+    private val flowerId: String = checkNotNull(savedStateHandle.get<String>("flowerId"))
     private val _uiState: MutableState<FlowerDetailsUiState> = mutableStateOf(FlowerDetailsUiState.Loading)
     val uiState: State<FlowerDetailsUiState> = _uiState
 

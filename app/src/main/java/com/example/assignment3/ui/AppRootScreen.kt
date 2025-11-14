@@ -18,7 +18,7 @@ fun AppRootScreen(){
     ){
         composable(route = "flower-list") {
             FlowerListScreen(
-                onItemClick = { navController.navigate("flower-details/$it") }
+                onItemClick = { id -> navController.navigate("flower-details/$id") }
             )
         }
         composable(

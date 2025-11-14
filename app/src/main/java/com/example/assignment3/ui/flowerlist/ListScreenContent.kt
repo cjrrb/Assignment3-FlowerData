@@ -23,7 +23,7 @@ import com.example.assignment3.domain.Flower
 fun ListScreenContent(
     flowerList: List<Flower>,
     modifier: Modifier,
-    onItemClick: (Int) -> Unit
+    onItemClick: (String) -> Unit
 ) {
     LazyColumn(
         contentPadding = PaddingValues(
@@ -31,7 +31,7 @@ fun ListScreenContent(
         ), modifier = modifier
     ) {
         items(flowerList) { flower ->
-            FlowerListItem(flower, { onItemClick(flower.id.toInt()) })
+            FlowerListItem(flower) { onItemClick(flower.id) }
         }
     }
 }
