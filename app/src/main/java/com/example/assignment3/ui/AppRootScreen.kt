@@ -6,14 +6,19 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.assignment3.ui.flowerdetails.FlowerDetailsScreen
+import com.example.assignment3.ui.flowerlist.FlowerListScreen
 
 @Composable
 fun AppRootScreen(){
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "flower-list"){
+    NavHost(
+        navController = navController,
+        startDestination = "flower-list"
+    ){
         composable(route = "flower-list") {
             FlowerListScreen(
-                onItemclick = { navController.navigate("flower-details/$it") }
+                onItemClick = { navController.navigate("flower-details/$it") }
             )
         }
         composable(
